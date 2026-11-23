@@ -627,6 +627,36 @@ textarea{min-height:100px}
 #experiencia h2{font-size:clamp(26px,3vw,38px)!important}
 .segs-h{font-size:clamp(22px,2.4vw,28px)}
 @media(max-width:620px){.hero h1{font-size:32px!important}.hero p.lead{font-size:16px}.hero .lead[style]{font-size:17px!important}}
+/* ===== Rev 8: segmentos em grade organizada ===== */
+.segs{display:grid!important;grid-template-columns:repeat(3,1fr);gap:12px;max-width:900px}
+.segs .seg{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;font-size:14.5px;font-weight:500;justify-content:flex-start;text-align:left;line-height:1.3;transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.3,1.3),border-color .4s,color .4s,background .4s,box-shadow .4s;transition-delay:calc(var(--i)*.1s),calc(var(--i)*.1s),0s,0s,0s,0s}
+.segs .seg .seg-ic{width:38px;height:38px;flex-shrink:0;transition:transform .8s cubic-bezier(.2,.9,.3,1.2),background .4s,color .4s;transition-delay:calc(var(--i)*.1s + .1s),0s,0s}
+.segs .seg .seg-ic svg{width:19px;height:19px}
+.segs .seg.hot{border-color:rgba(162,249,84,.6);background:linear-gradient(120deg,#25321a,#1d1d1d 75%);color:#fff;box-shadow:0 0 0 1px rgba(162,249,84,.15),0 10px 28px rgba(0,0,0,.35)}
+.segs .seg.hot .seg-ic{background:var(--green);color:#111}
+@media(max-width:960px){.segs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){
+ .segs{gap:10px}
+ .segs .seg{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:9px;padding:16px 10px;min-height:112px;font-size:13px;border-radius:16px}
+ .segs .seg .seg-ic{width:40px;height:40px}
+ .segs .seg:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;min-height:0;padding:14px}
+}
+@media(min-width:961px){.segs{grid-template-columns:repeat(5,1fr);max-width:1080px}.segs .seg{flex-direction:column;justify-content:center;text-align:center;gap:10px;padding:18px 12px;min-height:118px;font-size:14px}.segs .seg .seg-ic{width:42px;height:42px}}
+/* Rev 10: selos do Sobre em grade uniforme */
+.about-pills{display:grid!important;grid-template-columns:repeat(4,1fr);gap:10px;max-width:820px;margin-left:auto;margin-right:auto}
+.about-pills span{justify-content:center;border-radius:14px!important;padding:14px 12px!important;font-size:14px!important;text-align:center}
+@media(max-width:620px){.about-pills{grid-template-columns:1fr 1fr}.about-pills span{flex-direction:column;gap:8px!important;padding:16px 10px!important;font-size:13.5px!important}.about-pills svg{width:20px;height:20px}}
+/* Rev 11: fundo com leve destaque na seção de código */
+.code-sec{position:relative;background:radial-gradient(ellipse 70% 60% at 20% 10%,rgba(162,249,84,.10),transparent 60%),radial-gradient(ellipse 60% 50% at 90% 90%,rgba(162,249,84,.07),transparent 60%),linear-gradient(180deg,#16190f 0%,#141414 100%);border-top:1px solid rgba(162,249,84,.12);border-bottom:1px solid rgba(162,249,84,.12);padding-top:72px!important;padding-bottom:72px!important}
+.code-sec::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(162,249,84,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.code-sec>.wrap{position:relative}
+.code-sec .big-term{box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(162,249,84,.12),0 0 60px rgba(162,249,84,.06)}
+/* Rev 12: corrige corte do itálico no "5" */
+.x-l{padding:0 .14em 0 .06em;box-sizing:border-box}
+.x-front,.x-front sup,.x-sheen{-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.x-front{padding:0 .14em 0 .06em;overflow:visible}
+.x-sheen{padding:0 .14em 0 .06em}
+.x-l sup{padding-right:.12em;margin-right:-.09em!important}
 /* logo */
 .logo-img{height:44px;width:auto;display:block;transition:height .3s}
 header.s .logo-img{height:36px}
@@ -877,7 +907,7 @@ header.s .logo-img{height:36px}
 <section class="segs-s">
   <div class="wrap">
     <div class="segs-top reveal"><span class="tag">Segmentos</span><h2 class="segs-h">Setores em que atuamos</h2></div>
-    <div class="segs" id="segs"><span class="seg" style="--i:0"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3V10l5 3V6h6v14"/></svg></i>Indústria e Manufatura</span><span class="seg" style="--i:1"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></i>Escritórios Corporativos</span><span class="seg" style="--i:2"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 10h2M12 10h2M16 10h0M8 14h2M12 14h2M8 18h2M12 18h4"/></svg></i>Contabilidade e Consultoria</span><span class="seg" style="--i:3"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M12 9v5M9.5 11.5h5"/></svg></i>Saúde e Clínicas</span><span class="seg" style="--i:4"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg></i>Varejo e Supermercados</span><span class="seg" style="--i:5"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7"/><circle cx="5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></i>Logística e Distribuição</span><span class="seg" style="--i:6"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></i>Comércio e Shopping Centers</span><span class="seg" style="--i:7"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></i>Condomínios Empresariais</span><span class="seg" style="--i:8"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 21h18"/></svg></i>Setor Financeiro</span></div>
+    <div class="segs" id="segs"><span class="seg" style="--i:0"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3V10l5 3V6h6v14"/></svg></i>Indústria e Manufatura</span><span class="seg" style="--i:1"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/></svg></i>Escritórios Corporativos</span><span class="seg" style="--i:2"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 10h2M12 10h2M16 10h0M8 14h2M12 14h2M8 18h2M12 18h4"/></svg></i>Contabilidade e Consultoria</span><span class="seg" style="--i:3"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11z"/><path d="M12 9v5M9.5 11.5h5"/></svg></i>Saúde e Clínicas</span><span class="seg" style="--i:4"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11l2-8H6"/></svg></i>Varejo e Supermercados</span><span class="seg" style="--i:5"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7"/><circle cx="5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></i>Logística e Distribuição</span><span class="seg" style="--i:6"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></i>Comércio e Shopping Centers</span><span class="seg" style="--i:7"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></i>Condomínios Empresariais</span><span class="seg" style="--i:8"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 21h18"/></svg></i>Setor Financeiro</span><span class="seg" style="--i:9"><i class="seg-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/><path d="M12 4V2l3 1-3 1"/></svg></i>Órgãos Públicos</span></div>
   </div>
 </section>
 
@@ -890,9 +920,9 @@ header.s .logo-img{height:36px}
     </div>
     <div class="about-pills reveal">
       <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Jacareí/SP</span>
-      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5z"/></svg>Laboratório técnico</span>
-      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg>Servidores próprios</span>
-      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 15l-3.5 2 1-4-3-2.7 4-.3L12 6l1.5 4 4 .3-3 2.7 1 4z"/></svg>Equipe certificada</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-2.5z"/></svg>Laboratório Técnico</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg>Servidores Próprios</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 15l-3.5 2 1-4-3-2.7 4-.3L12 6l1.5 4 4 .3-3 2.7 1 4z"/></svg>Equipes Certificadas</span>
     </div>
   </div>
 </section>
@@ -1165,6 +1195,14 @@ new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){es[0].target.classLis
   const order=[0,3,6,9,2,5,8,1,4,7];
   const tick=()=>{ const a=cs[order[k%10]], b=cs[order[(k+5)%10]]; [a,b].forEach(c=>{c.classList.add('flip'); setTimeout(()=>c.classList.remove('flip'),2200)}); k++; };
   new IntersectionObserver(es=>{ if(es[0].isIntersecting){ box.classList.add('in'); if(!t&&!RM) setTimeout(()=>{ if(!t){tick(); t=setInterval(tick,1600)} },1400)} else {clearInterval(t);t=null} },{threshold:.2}).observe(box);
+})();
+
+
+// segmentos: destaque que percorre os cards
+(function(){
+  const cs=[...document.querySelectorAll('#segs .seg')]; let i=0,t;
+  const go=()=>{cs.forEach(c=>c.classList.remove('hot')); cs[i%cs.length].classList.add('hot'); i++};
+  new IntersectionObserver(es=>{ if(es[0].isIntersecting){ if(!t&&!RM) setTimeout(()=>{ if(!t){go(); t=setInterval(go,1300)} },1600)} else {clearInterval(t);t=null;cs.forEach(c=>c.classList.remove('hot'))} },{threshold:.2}).observe(document.getElementById('segs'));
 })();
 
 // faixas em loop (duplica o conteúdo)
